@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- views/index.ejs -->
 
 <!DOCTYPE html>
@@ -23,7 +24,25 @@
       </ul>
     <% } else { %>
       <p>Error fetching data from API.</p>
+=======
+<h1>Welcome to the Potion Marketplace!</h1>
+<% if (potions.length > 0) { %>
+  <ul>
+    <% for (const potion of potions) { %>
+      <li>
+        <a href="/potions/<%= potion.id %>"><%= potion.name %></a> (<%= potion.price %> galleons)
+      </li>
+>>>>>>> 79aecebc6ede11c18b27e34d2b2b5572a8b7a76b
     <% } %>
-  </div>
-</body>
-</html>
+  </ul>
+<% } else { %>
+  <p>No potions available yet!</p>
+<% } %>
+
+<form action="/potions" method="POST">
+  <label for="name">Potion Name:</label>
+  <input type="text" name="name" id="name">
+  <label for="price">Price (galleons):</label>
+  <input type="number" name="price" id="price">
+  <button type="submit">Add Potion</button>
+</form>
